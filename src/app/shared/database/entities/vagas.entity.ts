@@ -42,13 +42,13 @@ export class VagasEntity {
   @Column({ name: "updateVaga_at" })
   updateVagaAt?: Date;
 
-  @ManyToOne(() => RecrutadorEntity, (fk) => fk.vagas)
+  @ManyToOne(() => RecrutadorEntity, (fk) => fk.vagas_recrutador)
   @JoinColumn({ name: "idRec", referencedColumnName: "idRec" })
-  recrutador!: RecrutadorEntity;
+  recrutador_vaga?: RecrutadorEntity;
 
-  @ManyToMany(() => CandidatoEntity, (fk) => fk.vagas)
+  @ManyToMany(() => CandidatoEntity, (fk) => fk.vaga_candidato)
   @JoinColumn({ name: "idCand", referencedColumnName: "idCand" })
-  candidatos!: CandidatoEntity[];
+  candidato_vaga?: CandidatoEntity[];
 
   @BeforeInsert()
   setCreatedAt?() {

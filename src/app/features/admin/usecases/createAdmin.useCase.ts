@@ -12,6 +12,7 @@ export class CreateAdminUseCase {
 
   public async execute(data: CreateAdminDTO): Promise<Admin> {
     const admin = Admin.create(data.nome, data.username, data.senha);
+
     return await this.repository.create(admin);
   }
 }

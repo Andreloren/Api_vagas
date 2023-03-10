@@ -34,9 +34,9 @@ export class AdminEntity {
   @Column({ name: "updateAdm_at" })
   updateAdmAt?: Date;
 
-  @OneToMany(() => RecrutadorEntity, (fk) => fk.admin)
+  @OneToMany(() => RecrutadorEntity, (fk) => fk.admin_recrutador)
   @JoinColumn({ name: "idRec", referencedColumnName: "idRec" })
-  recrutadores!: RecrutadorEntity[];
+  recrutadores_admin?: RecrutadorEntity[];
 
   @BeforeInsert()
   setCreatedAt?() {

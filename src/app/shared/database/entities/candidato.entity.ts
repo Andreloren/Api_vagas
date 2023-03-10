@@ -26,7 +26,7 @@ export class CandidatoEntity {
   senha!: string;
 
   @Column()
-  starus!: string;
+  status!: string;
 
   @CreateDateColumn({ name: "createCand_at" })
   createCandAt?: Date;
@@ -34,9 +34,9 @@ export class CandidatoEntity {
   @Column({ name: "updateCand_at" })
   updateCandAt?: Date;
 
-  @ManyToMany(() => VagasEntity, (fk) => fk.candidatos)
+  @ManyToMany(() => VagasEntity, (fk) => fk.candidato_vaga)
   @JoinColumn({ name: "idVaga", referencedColumnName: "idVaga" })
-  vagas!: VagasEntity[];
+  vaga_candidato?: VagasEntity[];
 
   @BeforeInsert()
   setCreatedAt?() {

@@ -12,7 +12,7 @@ export class CreateTableAdmin1678213925695 implements MigrationInterface {
             isPrimary: true,
             isNullable: false,
             isGenerated: true,
-            primaryKeyConstraintName: "pk_admin",
+            primaryKeyConstraintName: "idAdm",
           },
           {
             name: "nome",

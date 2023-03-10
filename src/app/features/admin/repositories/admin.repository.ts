@@ -6,6 +6,15 @@ export class AdminRepository {
   private _repository =
     DatabaseConnection.connection.getRepository(AdminEntity);
 
+  private mapToModel(entity: AdminEntity) {
+    return Admin.create(
+      entity.nome,
+      entity.username,
+      entity.senha,
+      entity.idAdm
+    );
+  }
+
   public async create(admin: AdminEntity): Promise<Admin> {
     const adminEntity = this._repository.create({
       idAdm: admin.idAdm,
@@ -18,5 +27,23 @@ export class AdminRepository {
     const result = await this._repository.save(adminEntity);
 
     return result;
+  }
+
+  public async getByUsername(username: string) {
+    const result = await this._repository.findOneBy({ username });
+
+    if (!result) {
+      return null;
+    }
+    return this.mapToModel(result);
+  }
+
+  public async getAll() {
+    const result = await this._repository.find();
+
+    if (!result) {
+      return null;
+    }
+    return result.map((user) => this.mapToModel(user));
   }
 }

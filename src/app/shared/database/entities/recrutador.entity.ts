@@ -39,13 +39,13 @@ export class RecrutadorEntity {
   @Column({ name: "updateRec_at" })
   updateRecAt?: Date;
 
-  @ManyToOne(() => AdminEntity, (fk) => fk.recrutadores)
+  @ManyToOne(() => AdminEntity, (fk) => fk.recrutadores_admin)
   @JoinColumn({ name: "idAdm", referencedColumnName: "idAdm" })
-  admin!: AdminEntity;
+  admin_recrutador?: AdminEntity;
 
-  @OneToMany(() => VagasEntity, (fk) => fk.recrutador)
+  @OneToMany(() => VagasEntity, (fk) => fk.recrutador_vaga)
   @JoinColumn({ name: "idVaga", referencedColumnName: "idVaga" })
-  vagas!: VagasEntity[];
+  vagas_recrutador?: VagasEntity[];
 
   @BeforeInsert()
   setCreatedAt?() {

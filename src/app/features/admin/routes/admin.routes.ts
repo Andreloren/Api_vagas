@@ -1,9 +1,15 @@
 import { Router } from "express";
 import { AdminController } from "../controllers/admin.controller";
-import { CreateAdminValidator } from "../validators/createAdmin.validator";
+import { CreateUsersMiddleware } from "../../../shared/middleware/createUsers.middleware";
+import { checkDuplicateAdminValidator } from "../validators/checkDuplicateAdmin.validator";
 
 const adminRoutes = Router();
 
-adminRoutes.post("/", [CreateAdminValidator], new AdminController().create);
+adminRoutes.post(
+  "/",
+  [CreateUsersMiddleware, checkDuplicateAdminValidator],
+  new AdminController().create
+);
+adminRoutes.get("/", new AdminController().listAll);
 
 export { adminRoutes };
