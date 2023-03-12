@@ -1,4 +1,4 @@
-import { Status } from "./status.model";
+import { Status } from "./user.model";
 
 export class Candidato {
   idCand?: number;

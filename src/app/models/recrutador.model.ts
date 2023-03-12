@@ -1,4 +1,4 @@
-import { Status } from "./status.model";
+import { Status } from "./user.model";
 import { Vagas } from "./vagas.model";
 
 export class Recrutador {

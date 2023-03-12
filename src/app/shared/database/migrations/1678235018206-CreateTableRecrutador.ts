@@ -36,7 +36,7 @@ export class CreateTableRecrutador1678235018206 implements MigrationInterface {
           {
             name: "senha",
             type: "varchar",
-            length: "20",
+            length: "100",
             isNullable: false,
           },
           {

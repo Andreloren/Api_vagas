@@ -1,6 +1,5 @@
-import { Candidato } from "./candidato.model";
 import { Recrutador } from "./recrutador.model";
-import { Status } from "./status.model";
+import { Status } from "./user.model";
 import { Vagas } from "./vagas.model";
 
 export class Admin {
@@ -9,7 +8,6 @@ export class Admin {
   username: string;
   senha: string;
   status: string;
-  usuarios?: [Admin[], Recrutador[], Candidato[]];
   totalVagas?: Vagas[];
 
   constructor(

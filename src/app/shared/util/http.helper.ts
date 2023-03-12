@@ -24,4 +24,10 @@ export class HttpHelper {
       message,
     });
   }
+
+  public static unauthorized(res: Response, message?: string, code?: number) {
+    return res.status(code ?? 401).send({
+      message,
+    });
+  }
 }

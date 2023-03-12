@@ -13,7 +13,9 @@ export const checkDuplicateAdminValidator = async (
 
     const usecase = new FindByUsernameService(new AdminRepository());
 
-    const result = usecase.execute(username);
+    const result = await usecase.execute(username);
+
+    console.log(result);
 
     if (!result) {
       return next();

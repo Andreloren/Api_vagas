@@ -36,7 +36,7 @@ export class CreateTableAdmin1678213925695 implements MigrationInterface {
           {
             name: "senha",
             type: "varchar",
-            length: "20",
+            length: "100",
             isNullable: false,
           },
           {

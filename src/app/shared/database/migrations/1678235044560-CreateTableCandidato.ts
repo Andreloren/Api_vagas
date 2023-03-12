@@ -36,7 +36,7 @@ export class CreateTableCandidato1678235044560 implements MigrationInterface {
           {
             name: "senha",
             type: "varchar",
-            length: "20",
+            length: "100",
             isNullable: false,
           },
           {
