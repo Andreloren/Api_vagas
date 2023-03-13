@@ -31,10 +31,6 @@ export class LoginUsecase {
     const criptoService = new CriptoService();
 
     const match = await criptoService.comparar(data.senha, user.senha);
-    console.log(match);
-    console.log(data.senha);
-    console.log(user.senha);
-    console.log(data.username);
 
     if (!match) {
       return {
@@ -44,18 +40,19 @@ export class LoginUsecase {
 
     const token = jwt.sign(
       {
+        id: user.idAdm,
         username: user.username,
         status: user.status,
       },
-      process.env.SECRET!,
+      //process.env.SECRET!,
+      "alr1982*",
       {
-        expiresIn: "1h",
+        expiresIn: "1d",
       }
     );
 
     return {
       message: "OK",
-      username: user.username,
       token,
     };
   }

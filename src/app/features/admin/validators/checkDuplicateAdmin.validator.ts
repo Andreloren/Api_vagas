@@ -20,7 +20,7 @@ export const checkDuplicateAdminValidator = async (
     if (!result) {
       return next();
     }
-    return HttpHelper.badRequest(res, `${username} já cadastrado`);
+    return HttpHelper.badRequest(res, `${username} já cadastrado`, 409);
   } catch (error: any) {
     return HttpHelper.error(res, "Server not found");
   }
