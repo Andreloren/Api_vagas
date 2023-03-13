@@ -44,8 +44,7 @@ export class LoginUsecase {
         username: user.username,
         status: user.status,
       },
-      //process.env.SECRET!,
-      "alr1982*",
+      process.env.SECRET!,
       {
         expiresIn: "1d",
       }
