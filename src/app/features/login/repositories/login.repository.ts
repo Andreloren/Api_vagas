@@ -17,4 +17,14 @@ export class LoginRepository {
 
     return user;
   }
+
+  public async getUserLogged(username: string) {
+    const userLogged = await this.repository.findOneBy({ username });
+
+    if (!userLogged) {
+      return null;
+    }
+
+    return userLogged;
+  }
 }

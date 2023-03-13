@@ -24,6 +24,5 @@ export function authorizationMiddleware(
   } catch (error) {
     return HttpHelper.unauthorized(res, "Token é inválido");
   }
-
   next();
 }
